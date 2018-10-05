@@ -1,0 +1,11 @@
+﻿@using V8Media.Framework.Utilities.Extensions
+@inherits UmbracoTemplatePage
+
+<nav class="nav-offcanvas">
+    <ul>
+        @foreach (var menu in Model.Content.Website().GetMenuItems())
+        {
+            <li><a href="@menu.Url" class="@menu.ActiveClass button">@menu.Title</a></li>
+        }
+    </ul>
+</nav>

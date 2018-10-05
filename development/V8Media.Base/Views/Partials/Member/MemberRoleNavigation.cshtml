@@ -1,0 +1,7 @@
+﻿@using V8Media.Framework.Utilities.Extensions
+@using Archetype.Models
+@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{ 
+    var roleNavigation = Model.Content.Website().GetPropertyValue<ArchetypeModel>("roleNavigation");
+    
+}

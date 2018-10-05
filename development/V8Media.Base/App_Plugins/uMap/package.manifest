@@ -1,0 +1,38 @@
+{
+ 	propertyEditors:
+ 	[ 
+ 		{
+ 			alias: "V8.uMap",
+ 			name: "uMap - Google Maps",
+ 			editor:
+ 				{
+         			view: "~/App_Plugins/uMap/views/uMap.html",
+					valueType: "JSON"
+         		},
+			prevalues: {
+				fields:[
+					{
+						label: "Default location",
+						description: "The lat,lng values for the default pin",
+						key: "defaultLocation",
+						view: "textstring"
+					},
+					{
+						label: "Additional fields",
+						description: "Comma-separated list of field names",
+						key: "additionalFields",
+						view: "textstring"
+					}              
+				]
+			}
+         }
+ 	],
+ 	javascript:
+ 	[
+ 		"~/App_Plugins/uMap/js/uMap.controller.js"
+ 	],
+ 	css:
+ 	[
+ 		"~/App_Plugins/uMap/css/uMap.css"
+ 	]
+ }

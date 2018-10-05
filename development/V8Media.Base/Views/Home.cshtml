@@ -1,0 +1,20 @@
+﻿@using V8Media.Framework.Utilities.Extensions
+@using V8Media.Framework.Models.PublishedContent
+@inherits UmbracoTemplatePage<Home>	
+@{
+    Layout = "Base.cshtml";
+}
+
+@Html.Partial("~/Views/Partials/Home/ImageSlider.cshtml")
+<div class="row">
+    <div class="column small-12">
+        <h1>@Model.Content.Header</h1>
+        @Html.Raw(Model.Content.BodyText)
+    </div>
+</div>
+@Html.Partial("~/Views/Partials/Home/Quicklinks.cshtml")
+
+@{
+    var children = V8Media.Framework.Utilities.Extensions.PublishedContentExtensions.GetMenuItems(Model.Content, 1);
+
+}

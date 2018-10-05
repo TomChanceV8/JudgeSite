@@ -1,0 +1,62 @@
+// declare colors in "insert filename here"
+
+// set default var for color palette upto 10 colours
+$color-1 : map-get($colors, color-1);
+$color-2 : map-get($colors, color-2);
+$color-3 : map-get($colors, color-3);
+$color-4 : map-get($colors, color-4);
+$color-5 : map-get($colors, color-5);
+$color-6 : map-get($colors, color-6);
+$color-7 : map-get($colors, color-7);
+$color-8 : map-get($colors, color-8);
+$color-9 : map-get($colors, color-9);
+$color-10 : map-get($colors, color-10);
+
+// set css color placeholders for color palette upto 10 colours
+%color-1 								{color:$color-1;}
+%color-2 								{color:$color-2;}
+%color-3 								{color:$color-3;}
+%color-4 								{color:$color-4;}
+%color-5 								{color:$color-5;}
+%color-6 								{color:$color-6;}
+%color-7 								{color:$color-7;}
+%color-8 								{color:$color-8;}
+%color-9 								{color:$color-9;}
+%color-10 								{color:$color-10;}
+
+// set css background-color placeholders for color palette upto 10 colours
+%bg-1	 								{background-color:$color-1;}
+%bg-2	 								{background-color:$color-2;}
+%bg-3	 								{background-color:$color-3;}
+%bg-4	 								{background-color:$color-4;}
+%bg-5	 								{background-color:$color-5;}
+%bg-6	 								{background-color:$color-6;}
+%bg-7	 								{background-color:$color-7;}
+%bg-8	 								{background-color:$color-8;}
+%bg-9	 								{background-color:$color-9;}
+%bg-10	 								{background-color:$color-10;}
+
+// placholders to extend for other key colors declared
+%body-color							{color:$body-color;}
+%heading-color						{color:$heading-color;}
+%link-color 						{color:$link-color;}
+%link-hover-color					{color:$link-hover-color;}
+
+%border-color						{color:$border-color;}
+%border-bg							{background-color:$border-color;}
+%divide-color						{color:$divide-color;}
+%divide-bg							{background-color:$divide-color;}
+
+%white								{color:#fff;}
+%white-bg							{background-color:#fff;}
+%black								{color:#000;}
+%black-bg							{background-color:#000;}
+
+// social media colours
+$facebook : #3b5999;
+$twitter : #32def4;
+$linkedin : #0097bd;
+$google : #d7452f;
+$youtube : #ee383a;
+$pinterest : #d11e16;
+$instagram : #517fa4;

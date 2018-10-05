@@ -1,0 +1,34 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@using System.Linq;
+@using V8Media.Framework.Models.PublishedContent
+@using V8Media.Framework.Utilities.Extensions
+@{
+    Layout = null;
+    Response.ContentType = "text/xml";
+}<?xml version='1.0' encoding='UTF-8' ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemalocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+@foreach (var item in Model.Content.Website().Children.Where(m => !m.GetPropertyValue<bool>("hideInSiteMap")))
+    {
+        @ListChildNodes(item)
+    }
+</urlset>
+ 
+@helper ListChildNodes(IPublishedContent startNode)
+{
+var defaultFreq = (!string.IsNullOrEmpty(startNode.GetPropertyValue<string>("sitemapFrequency"))) ? startNode.GetPropertyValue("sitemapFrequency") : Model.Content.Website().GetPropertyValue("sitemapFrequency");
+var defaultPriority = (!string.IsNullOrEmpty(startNode.GetPropertyValue<string>("sitemapPriority"))) ? startNode.GetPropertyValue("sitemapPriority") : Model.Content.Website().GetPropertyValue("sitemapPriority");
+
+            <url>
+                <loc>@startNode.Url.MakeAbsolutUrl()</loc>
+                <lastmod>@(string.Format("{0:s}+00:00", startNode.UpdateDate))</lastmod>
+                <changefreq>@defaultFreq</changefreq>
+                <priority>@defaultPriority</priority>
+            </url>      
+    foreach (var item in startNode.Children.Where(m => !m.GetPropertyValue<bool>("hideInSiteMap")))
+    {
+     @ListChildNodes(item)
+    }
+}
+ 

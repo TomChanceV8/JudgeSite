@@ -1,0 +1,29 @@
+@mixin cssarrow	($height,$color,$position){
+	border:$height solid transparent;
+	@if $position == 'right'{
+		top:50%;
+		left:100%;
+		margin-top:-$height;
+		border-left-color:$color;
+	}
+	@if $position == 'left'{
+		top:50%;
+		right:100%;	
+		margin-top:-$height;
+		border-right-color:$color;
+	}
+	@if $position == 'top'{
+		top:0%;
+		right:50%;	
+		margin-right:-$height;
+		margin-top:-(2*$height);
+		border-bottom-color:$color;
+	}
+	@if $position == 'bottom'{
+		top:100%;
+		right:50%;	
+		margin-right:-$height;
+		border-top-color:$color;
+	}
+	content:" "; height:0; width:0; @extend %absolute;
+}

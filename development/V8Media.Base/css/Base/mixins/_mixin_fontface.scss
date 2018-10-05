@@ -1,0 +1,12 @@
+$directory : Fonts;
+
+@mixin font-face($filename,$type,$weight,$style){
+    font-family: '#{$filename}';
+    src: url('#{$directory}/#{$filename}/#{$type}/#{$filename}-#{$type}.eot');
+    src: url('#{$directory}/#{$filename}/#{$type}/#{$filename}-#{$type}.eot?#iefix') format('embedded-opentype'),
+         url('#{$directory}/#{$filename}/#{$type}/#{$filename}-#{$type}.woff') format('woff'),
+         url('#{$directory}/#{$filename}/#{$type}/#{$filename}-#{$type}.ttf') format('truetype'),
+         url('#{$directory}/#{$filename}/#{$type}/#{$filename}-#{$type}.svg##{$filename}#{$type}') format('svg');
+    font-weight: $weight;
+    font-style: $style;
+}

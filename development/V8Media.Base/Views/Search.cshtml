@@ -1,0 +1,20 @@
+﻿@using V8Media.Framework.Utilities.Extensions
+@inherits UmbracoTemplatePage<V8Media.Framework.Models.PublishedContent.Search>
+@{
+    Layout = "Base.cshtml";
+}
+<div class="row">
+    <div class="column small-12">
+        <h1>@Model.Content.Header</h1>
+        @Html.Raw(Model.Content.BodyText)
+    </div>
+    <div class="column small-12">
+        @if (Model.Content.SearchResults.Any())
+        {
+            foreach (var result in Model.Content.SearchResults)
+            {
+                <p><a href="@result.Url">@result.Name @result.ExamineScore()</a></p>     
+            }
+        }
+    </div>
+</div>

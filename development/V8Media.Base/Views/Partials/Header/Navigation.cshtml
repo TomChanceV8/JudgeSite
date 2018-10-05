@@ -1,0 +1,32 @@
+﻿@using V8Media.Framework.Utilities.Extensions
+@using MenuItem = V8Media.Framework.Models.ViewModels.MenuItem
+@inherits UmbracoTemplatePage
+<nav class="nav">
+    <ul>
+        @foreach (var menu in Model.Content.Website().GetMenuItems())
+        {
+            @RenderMenuItem(menu)
+        }
+    </ul>
+</nav>
+<div class="nav__btn canvas-toggle">
+    <div></div>
+    <div></div>
+    <div></div>
+</div>
+
+@helper RenderMenuItem(MenuItem menuItem)
+{
+    <li>
+        <a href="@menuItem.Url" class="@menuItem.ActiveClass">@menuItem.Title</a>
+        @if (menuItem.ChildMenuItems.Any())
+        {
+            <ul>
+                @foreach (var childMenu in menuItem.ChildMenuItems)
+                {
+                    @RenderMenuItem(childMenu)
+                }       
+            </ul>
+        }
+    </li>   
+}

@@ -1,0 +1,3 @@
+﻿Dependencies:
+UmbracoCms.Core
+MvcDonutCaching

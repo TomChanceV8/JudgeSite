@@ -1,0 +1,18 @@
+﻿@inherits UmbracoTemplatePage
+@{
+    if(Model.Content.HasProperty("imageSlider"))
+    {
+        var contType = Model.Content.ContentType;
+        var propType = contType.GetPropertyType(Model.Content.GetProperty("imageSlider").PropertyTypeAlias).PropertyEditorAlias;
+
+        if (propType == Constants.PropertyEditors.MultipleMediaPickerAlias)
+        {
+            @Html.Partial("~/Views/Partials/Home/ImageSliderMediaPicker.cshtml")
+        }
+        if (propType == Archetype.Constants.PropertyEditorAlias)
+        {
+            @Html.Partial("~/Views/Partials/Home/ImageSliderArchetype.cshtml")
+        }
+    }
+
+} 

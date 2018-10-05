@@ -1,0 +1,11 @@
+﻿@using V8Media.Framework.Utilities.Extensions
+@inherits UmbracoTemplatePage
+<div class="footer-links">
+    <ul>
+        @foreach (var link in Model.Content.Website().FooterLinks)
+        {
+            <li><a href="@link.Url" target="@link.Target" title="@link.Meta.Title">@link.Meta.Title</a></li>
+        }
+        <li><a href="http://www.v8media.co.uk" target="_blank">website created by V8Media</a></li>
+    </ul>
+</div>

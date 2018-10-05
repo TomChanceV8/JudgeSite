@@ -1,0 +1,30 @@
+﻿@using V8Media.Framework.Utilities.Extensions
+@using V8Media.Framework.Models.Form
+@inherits UmbracoTemplatePage<V8Media.Framework.Models.PublishedContent.Contact>
+@{
+    Layout = "Base.cshtml";
+}
+
+<div class="row body-text">
+    <div class="column small-12 large-6">
+        <h1>@Model.Content.Header</h1>
+        @Html.Raw(Model.Content.BodyText)
+        <p>
+            @Model.Content.Website().GetPropertyValue("companyName")<br />
+            @Model.Content.Website().GetPropertyValue("addressLine1"), @Model.Content.Website().GetPropertyValue("addressLine2")<br />
+            @Model.Content.Website().GetPropertyValue("city"), @Model.Content.Website().GetPropertyValue("postCode")
+        </p>
+        <p>
+            T: @Model.Content.Website().GetPropertyValue("telephone")<br />
+            E: <a href="mailto:@Model.Content.Website().GetPropertyValue("email")">@Model.Content.Website().GetPropertyValue("email")</a>
+        </p>
+    </div>
+    <div class="column small-12 large-6">
+        @Html.Partial("ContactForm", new ContactFormModel())
+    </div>
+</div>
+<div class="row">
+    <div class="column small-12">
+        @Html.Partial("GoogleMaps", Model.Content.GoogleMap)        
+    </div>
+</div>

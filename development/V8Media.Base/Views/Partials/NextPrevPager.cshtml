@@ -1,0 +1,25 @@
+﻿@using System.Globalization
+@using V8Media.Framework.Domain
+@using V8Media.Framework.Utilities.Extensions
+@inherits UmbracoViewPage<V8Media.Framework.Models.Custom.Pager>
+@{
+    var next = ViewData.ContainsKey(AppConstants.ViewDataPagerPreviousPage) ? ViewData[AppConstants.ViewDataPagerPreviousPage] : "Newer Posts";
+    var previous = ViewData.ContainsKey(AppConstants.ViewDataPagerPreviousPage) ? ViewData[AppConstants.ViewDataPagerPreviousPage] : "Older Posts";
+}
+@if (Model.Pages.Count() > 1) 
+{
+    <div class="row">	
+        <div class="column small-12">
+            <ul>
+                @if (Model.HasPreviousPage)
+                {
+                    <li><a href="@Umbraco.AppendOrUpdateQueryString(AppConstants.QuerystringPagerPage, (Model.CurrentPage - 1).ToString(CultureInfo.InvariantCulture))">@previous</a></li>
+                }
+                @if (Model.HasNextPage)
+                {
+                    <li><a href="@Umbraco.AppendOrUpdateQueryString(AppConstants.QuerystringPagerPage, (Model.CurrentPage + 1).ToString(CultureInfo.InvariantCulture))">@next</a></li>
+                }
+            </ul>
+        </div>
+    </div>
+}

@@ -1,0 +1,39 @@
+// comment out unwanted files
+
+//vendor
+@import '../vendor/foundation';
+@import '../vendor/normalize';
+
+//settings
+@import 'settings';
+
+//base
+@import '../base/mixins/mixins';
+@import '../base/colour';
+@import '../base/placeholders';
+@import '../base/base';
+
+//modules
+@import '../modules/blocks';
+@import '../modules/buttons';
+@import '../modules/forms';
+@import '../modules/icons';
+@import '../modules/imageslider';
+@import '../modules/lightbox';
+@import '../modules/menus';
+@import '../modules/modal';
+@import '../modules/offcanvas';
+
+//theme
+@import '../views/base';
+@import '../views/home';
+@import '../views/textpage';
+@import '../views/contact';
+@import '../views/newslisting';
+@import '../views/newsarticle';
+@import '../views/gallery';
+@import '../views/testimonials';
+@import '../views/search';
+@import '../views/team';
+@import '../views/listing';
+@import '../views/ecommerce/ecommerce';

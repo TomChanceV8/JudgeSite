@@ -1,0 +1,21 @@
+// header
+header 									{@extend %float-fix;}
+
+.nav__btn 								{@extend %float-right; @extend %pointer; @extend %none;
+	div 									{width:35px; height:5px; margin-bottom:4px; @extend %bg-1;
+		&:last-child 							{margin-bottom:0;}
+	}
+}
+
+// logo
+.logo									{
+	&__wrap 								{@extend %float-left;}
+}
+
+
+
+// responsive
+@media only screen and (max-width:1024px){
+	.nav 								{display:none;}
+	.nav__btn 							{display:block;}
+}

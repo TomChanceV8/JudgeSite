@@ -1,0 +1,7 @@
+﻿@inherits UmbracoTemplatePage
+@using V8Media.Framework.Utilities.Extensions
+@{
+   <script>
+       @Html.Raw(Model.Content.Website().GoogleAnalytics)
+   </script>
+}

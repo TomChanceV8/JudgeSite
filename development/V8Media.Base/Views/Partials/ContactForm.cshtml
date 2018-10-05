@@ -1,0 +1,22 @@
+﻿@using V8Media.Framework.Controllers
+@inherits UmbracoViewPage<V8Media.Framework.Models.Form.ContactFormModel>
+
+<div class="form-enquire">
+    <h3>Enquiry Form</h3>
+    @using (Html.BeginUmbracoForm<ContactController>("SendEmail"))
+    {
+        @Html.LabelFor(x => Model.Name)
+        @Html.TextBoxFor(x => Model.Name, new { @placeholder = "Name", @required = "required" })
+        @Html.ValidationMessageFor(x => Model.Name)
+
+        @Html.LabelFor(x => Model.Email)
+        @Html.TextBoxFor(x => Model.Email, new { @placeholder = "Email", @required = "required" })
+        @Html.ValidationMessageFor(x => Model.Email)
+
+        @Html.LabelFor(x => Model.Comment)
+        @Html.TextAreaFor(x => Model.Comment, new { @cols = 80, @rows = 10, @required = "required", @placeholder = "Your Enquiry..." })
+        @Html.ValidationMessageFor(x => Model.Comment)
+
+        <input type="submit" name="Submit" class="btn btn-cta" value="Submit" />
+    }
+</div>

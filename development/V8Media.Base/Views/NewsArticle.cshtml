@@ -1,0 +1,32 @@
+﻿@using V8Media.Framework.Models.PublishedContent
+@inherits UmbracoTemplatePage<NewsArticle>	
+@{
+    Layout = "Base.cshtml";
+}
+<div class="row">
+    <div class="column small-8">
+        <h1>@Model.Content.Header</h1>
+        <p>Date: @Model.Content.NewsDate.ToShortDateString()</p>
+        <p>Tags:
+            @foreach (var tag in Model.Content.CategoryTags)
+            {
+                <a href="@Model.Content.NewsListing.TagFilterUrl(tag.Text)">@tag.Text (@tag.NodeCount)</a>
+            }
+        </p>
+        @Html.Raw(Model.Content.BodyText)
+    </div>
+    <div class="column small-4">
+        <h3>Categories</h3>
+        @foreach (var tag in V8Media.Framework.Services.ServiceFactory.GetService<V8Media.Framework.Services.NewsService>().GetCategoryTags())
+        {
+            <p><a href="@Model.Content.NewsListing.TagFilterUrl(tag.Text)">@tag.Text (@tag.NodeCount)</a></p>
+        }
+    </div>
+    <div class="column small-4">
+        <h3>Archive</h3>
+        @foreach (var archiveDate in Model.Content.NewsListing.NewsArchiveDates)
+        {
+            <p><a href="@Model.Content.NewsListing.ArchiveUrl(archiveDate.Date.ToString("yyyy"), archiveDate.Date.ToString("MM"))">@archiveDate.Date.ToString("yyyy") @archiveDate.Date.ToString("MMMM") (@archiveDate.NodeCount)</a></p>
+        }
+    </div>
+</div>

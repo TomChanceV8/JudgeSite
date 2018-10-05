@@ -1,0 +1,91 @@
+// defines browser prefixes for css3 animation functions
+
+// css3 animations
+
+@mixin backface-visibility($string) {
+	-webkit-backface-visibility: $string;
+	-moz-backface-visibility: $string;
+	-ms-backface-visibility: $string;
+	-o-backface-visibility: $string;
+	backface-visibility: $string;
+}
+
+@mixin perspective($int) {
+	-webkit-perspective: $int;
+	-moz-perspective: $int;
+	-ms-perspective: $int;
+	-o-perspective: $int;
+	perspective: $int;
+}
+
+@mixin perspective-origin($var...) {
+	-webkit-perspective-origin: $var;
+	-moz-perspective-origin: $var;
+	-ms-perspective-origin: $var;
+	-o-perspective-origin: $var;
+	perspective-origin: $var;
+}  
+
+@mixin transform($var...) {
+	-webkit-transform: $var;
+	-moz-transform: $var;
+	-ms-transform: $var;
+	-o-transform: $var;
+	transform: $var;
+}
+
+@mixin transform-origin($var...) {
+	-webkit-transform-origin: $var;
+	-moz-transform-origin: $var;
+	-ms-transform-origin: $var;
+	-o-transform-origin: $var;
+	transform-origin: $var;
+}
+
+@mixin transform-style($string) {
+	-webkit-transform-style: $string;
+	-moz-transform-style: $string;
+	-ms-transform-style: $string;
+	-o-transform-style: $string;
+	transform-style: $string;
+}
+
+@mixin transition($var...) {
+	-webkit-transition: $var;
+	-moz-transition: $var;
+	-ms-transition: $var;
+	-o-transition: $var;
+	transition: $var;
+}
+
+@mixin transition-delay($var...){
+	-webkit-transition-delay: $var;
+	-moz-transition-delay: $var;
+	-ms-transition-delay: $var;
+	-o-transition-delay: $var;
+	transition-delay: $var;
+}
+
+@mixin transition-duration($var...){
+	-webkit-transition-duration: $var;
+	-moz-transition-duration: $var;
+	-ms-transition-duration: $var;
+	-o-transition-duration: $var;
+	transition-duration: $var;
+}
+
+@mixin transition-property($var...){
+	-webkit-transition-property: $var;
+	-moz-transition-property: $var;
+	-ms-transition-property: $var;
+	-o-transition-property: $var;
+	transition-property: $var;
+}
+
+@mixin transition-transform($var...){
+	-webkit-transition-property: -webkit-transform $var;
+	-moz-transition-property: -moz-transform $var;
+	-ms-transition-property: -ms-transform $var;
+	-o-transition-property: -o-transform $var;
+	transition-property: transform $var;
+}

@@ -1,0 +1,26 @@
+﻿@using V8Media.Framework.Models.PublishedContent
+@using V8Media.Framework.Utilities.Extensions
+@inherits Umbraco.Web.Macros.PartialViewMacroPage
+
+@helper Traverse(Menu node)
+{
+    <li>
+        <a href="@node.Url">@node.MenuTitle</a>
+        @if (node.Children.OfType<Menu>().Any())
+        {
+            <ul>
+                @foreach (var n in node.Children.OfType<Menu>().Where(m => !m.HideInSitemap))
+                {
+                    @Traverse(n)
+                }
+            </ul>
+        }
+    </li>
+}
+
+<ul>
+    @foreach (var item in @Model.Content.Website().Children.OfType<Menu>().Where(m => !m.HideInSitemap))
+    {
+        @Traverse(item)
+    }
+</ul>

@@ -1,0 +1,109 @@
+//Declares all global placeholders
+
+//border
+%no-border							{border:none;}
+%no-border-bottom					{border-bottom:none;}
+%no-border-left						{border-left:none;}
+%no-border-right					{border-right:none;}
+%no-border-top						{border-top:none;}
+
+//center align
+%center 							{margin-left:auto; margin-right:auto; @extend %block;}
+
+//clear
+%clear-both							{clear:both;}
+%clear-left							{clear:left;}
+%clear-right						{clear:right;}
+
+//cursor
+%pointer							{cursor:pointer;}
+
+//display
+%block								{display:block;}
+%inline								{display:inline;}
+%inline-block						{display:inline-block;}
+%none 								{display:none;}
+%table 								{display:table;}
+%table-cell							{display:table-cell;}
+
+//float
+%float-left							{float:left;}
+%float-right						{float:right;}
+%float-none							{float:none;}
+
+//stop container collapse from floated elements
+%float-fix 							{
+	&:after 							{content:" "; height:0; @extend %block; @extend %clear-both;}
+}
+
+//lists
+%no-bullet							{list-style-type:none;}
+
+//margin
+%no-margin							{margin:0;}
+%margin-auto						{margin:auto;}
+
+//overflow
+%no-overflow						{overflow:hidden;}
+%overflow-auto						{overflow:auto;}
+	
+//padding
+%no-padding							{padding:0;}
+
+//position
+%static								{position:static;}
+%relative							{position:relative;}
+%absolute							{position:absolute;}
+%fixed								{position:fixed;}
+
+//position elements center / vertical center without fixed dimensions (margin auto)
+//requires position relative (if container is fixed dimension) or absolute.
+%center-align						{left:50%; @include transform(translateX(-50%));}
+%vertical-align 					{top:50%; @include transform(translateY(-50%));}
+%absolute-center-align				{left:50%; top:50%; @include transform(translate(-50%,-50%));}
+
+//size
+%width100							{width:100%;}
+%width66 							{width:66.666%;}
+%width50							{width:50%;}
+%width33							{width:33.333%}
+%width25							{width:25%;}
+%width20 							{width:20%;}
+
+%height100							{height:100%;}
+
+//visibility
+%visible							{visibility:visible;}
+%hidden								{visibility:hidden;}
+
+//////////typography//////////
+
+//font-family
+%body-font							{font-family:$body-font;}
+%display-font						{font-family:$display-font;}
+%decorative-font					{font-family:$decorative-font;}
+
+//font-weight
+%extrabold 							{font-weight:900;}
+%bold								{font-weight:700;}
+%normal								{font-weight:400;}
+%light								{font-weight:300;}
+
+//text-align
+%text-left							{text-align:left;}
+%text-center						{text-align:center;}
+%text-right							{text-align:right;}
+%text-justify						{text-align:justify;}
+
+//text-transform
+%lowercase							{text-transform:lowercase;}
+%uppercase							{text-transform:uppercase;}
+%capitalize							{text-transform:capitalize;}
+
+//font-style / decoration
+%italic								{font-style:italic;}
+%underline							{text-decoration:underline;}
+%no-decoration						{text-decoration:none;}
+
+//backface-visibility 
+%backface-visibility-hidden 		{@include backface-visibility(hidden);}

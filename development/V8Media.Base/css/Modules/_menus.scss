@@ -1,0 +1,51 @@
+%nav-inline 							{
+	ul 										{@extend %no-bullet; font-size:0; line-height:0;}
+	li 										{@extend %inline-block;}
+	a 										{@extend %block;}
+}
+
+%nav-center 							{@extend %nav-inline; @extend %text-center; @extend %width100;}
+
+%nav-child 								{@extend %relative;
+	>ul 									{@extend %absolute; @extend %none;}
+	&:hover 								{
+		>ul 									{@extend %block;}
+	}
+}
+
+.nav 									{@extend %nav-inline; @extend %float-right;
+	>ul										{margin:0; padding:0;
+		>li 									{border-right:1px solid $border-color; @extend %nav-child;
+			>a 										{padding:0 .5rem;}
+			>ul 									{bottom:0; left:0; padding-top:1rem;
+				>li 									{
+					&:first-child 							{border-top:4px solid $color-1;}
+				}
+			}
+			&:last-child 							{border-right:none;
+				a 										{padding-right:0;}
+			}
+		}
+	}
+	a 										{font-size:1rem; line-height:1rem; @extend %no-decoration;}
+}
+
+.nav-offcanvas							{margin:0; padding:1rem; @extend %float-left; @extend %width100;
+	ul 										{@extend %no-bullet;}
+	>ul 									{margin:0; padding:0; @extend %width100;
+		ul 										{margin:0; padding:0 0 01rem;}
+	}
+	li 										{border-bottom:1px solid #fff;}
+	a 										{font-size:1rem; line-height:1rem; padding:.5rem 0; @extend %no-decoration; @extend %block; @extend %white;}
+}
+
+.footer-links 							{@extend %nav-inline; @extend %float-right;
+	>ul										{margin:0; padding:0;
+		>li 									{border-right:1px solid $border-color;			
+			&:last-child 							{border-right:none;
+				a 										{padding-right:0;}
+			}
+		}
+	}
+	a 										{font-size:.8rem; line-height:1rem; padding:0 .5rem; @extend %no-decoration;}
+}

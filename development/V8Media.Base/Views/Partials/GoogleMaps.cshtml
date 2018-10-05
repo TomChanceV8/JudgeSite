@@ -1,0 +1,38 @@
+﻿@using ClientDependency.Core.Mvc
+@using Newtonsoft.Json
+@using V8Media.Framework.Models.PublishedContent
+@inherits UmbracoViewPage<V8Media.Framework.Models.Custom.GoogleMaps>
+@{
+    Html.RequiresJs("//maps.google.com/maps/api/js?sensor=false")
+        .RequiresJs("~/scripts/googlemaps.js");
+    var mapId = string.IsNullOrEmpty(Model.Id) ? "V8Map" : Model.Id;
+}
+
+
+<div class="google-maps-location">
+    <div class="google-maps-search">
+        <input type="text" id="@string.Concat(mapId, "findMeText")" />
+        <button id="@string.Concat(mapId, "findMe")">Find Me</button>
+    </div>
+</div>
+<div class="google-maps-map" style="width: 500px; height:500px;" id="@string.Concat(mapId, "map")"></div>
+<div class="google-maps-directions" id="@string.Concat(mapId, "directions")"></div>
+
+<script type="text/javascript">
+    
+    var points = @Html.Raw(JsonConvert.SerializeObject(Model.Locations.Where(m => !m.Disabled)));
+    var settings = {
+        idPrefix: "@mapId",
+        enableDirections: true,
+        enableCurrentLocationResolution: true,
+        enableLocationSearch: true,
+        messages: {
+            getDirections: "Get Directions",
+            youAreHere: "You Are Here"
+        }
+    };    
+
+    (function () {
+        v8media.map(points, settings);
+    })();
+</script>

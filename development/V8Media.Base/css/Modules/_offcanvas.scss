@@ -1,0 +1,31 @@
+$animation-speed : 500ms;
+
+$main-bg : #fff;
+
+$overlay-bg : rgba(0,0,0,0.5);
+
+$offcanvas-width:250px;
+$offcanvas-bg : $color-1;
+$offcanvas-position : right; // left or right
+
+.canvas 								{
+	%canvas 								{@extend %width100; @extend %relative;}
+	&__wrap 								{@extend %canvas;}
+	&__inner 								{@extend %canvas; @extend %height100; @extend %no-overflow; @include transition(all $animation-speed);}
+	&__main 								{background-color:$main-bg; @extend %canvas; @extend %float-left;}
+	&__overlay 								{background-color:$overlay-bg; bottom:0; left:0; opacity:0; right:0; top:0; z-index:99; @extend %absolute; @extend %hidden; @extend %pointer; @include transition(opacity $animation-speed);}
+	&__offcanvas 							{background-color:$offcanvas-bg; bottom:0; top:0; width:$offcanvas-width; @extend %absolute;
+												@if $offcanvas-position == left {left:-$offcanvas-width;}
+												@if $offcanvas-position == right {right:-$offcanvas-width;}
+	}
+
+	&--open 								{
+		.canvas 								{
+			&__overlay 								{opacity:1; @extend %visible;}
+			&__inner 								{
+														@if $offcanvas-position == left {@include transform(translateX($offcanvas-width));}
+														@if $offcanvas-position == right {@include transform(translateX(-$offcanvas-width));}
+			}
+		}
+	}
+}

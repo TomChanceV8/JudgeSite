@@ -1,0 +1,33 @@
+﻿@using V8Media.Framework.Models.PublishedContent
+@inherits UmbracoTemplatePage
+@{
+    var images = Model.Content.GetPropertyValue<IEnumerable<IPublishedContent>>("imageSlider").ToList();
+    if (images.Any()) 
+    {
+        var x = 0;
+        <div class="banner__wrap">
+            <div class="banner">   
+                @foreach (var image in images.OfType<Image>())
+                {
+                    x++;  
+                    <div class="banner__item" data-val="@x">
+                        <img src="@image.GetCropUrl(1500, 500)" alt="@image.AltTag" />
+                    </div>
+                }
+            </div>
+            <div class="banner__controls">
+                <div class="banner__controls__arrows">
+                    <div class="banner__nav banner__nav--prev"></div>
+                    <div class="banner__nav banner__nav--next"></div>
+                </div>
+                <div class="banner__controls__radials">
+                    @for (int y = 0; y < x; y++)
+                    {
+                        <div class="banner__radial" data-val="@y"></div>
+                    }
+                </div>
+            </div>
+        </div> 
+    }
+}
+        

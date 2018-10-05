@@ -1,0 +1,36 @@
+﻿@using V8Media.Framework.Models.PublishedContent
+@using V8Media.Framework.Utilities.Extensions
+@inherits UmbracoTemplatePage
+@{
+    var menu = new Menu(Model.Content);
+    
+    <title>@menu.PageTitle</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="@menu.MetaDescription" />
+    if (!string.IsNullOrEmpty(menu.MetaKeywords))
+    {
+        <meta name="keywords" content="@menu.MetaKeywords" /> 
+    }
+    <link rel="shortcut icon" href="/css/assets/images/favicon.ico" />
+    <link rel="canonical" href="@menu.UrlWithDomain()" />
+    
+    <!-- Open Graph data -->
+    <meta property="og:title" content="@menu.OpenGraphTitle" />
+    <meta property="og:url" content="@menu.UrlWithDomain()" />
+    if (menu.OpenGraphImage != null)
+    {
+        <meta property="og:image" content="@menu.OpenGraphImage.Url" />
+    }
+    <meta property="og:description" content="@menu.OpenGraphDescription" />
+    
+    <!-- Twitter Card data -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@menu.Website().Twitter">
+    <meta name="twitter:title" content="@menu.TwitterCardTitle">
+    <meta name="twitter:description" content="@menu.TwitterCardDescription">
+    if (menu.TwitterCardImage != null)
+    {
+        <meta name="twitter:image" content="@menu.TwitterCardImage.Url">
+    }
+}

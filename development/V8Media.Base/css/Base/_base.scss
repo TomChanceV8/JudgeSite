@@ -1,0 +1,66 @@
+//global styling
+html, body 									{font-size:$base-size; line-height:$base-size; @extend %body-font; @extend %body-color;}
+
+a 										{@extend %link-color; @extend %no-decoration;
+	&:hover 								{@extend %link-hover-color; @extend %underline;}
+}
+
+hr 										{border:none; border-top:1px solid $divide-color; margin:1.5rem 0; @extend %float-left; @extend %width100; @extend %clear-both;}
+
+// RTE styling
+.body-text 								{
+	%list 									{margin:0 0 1rem 0; padding:0 0 0 1.5rem; line-height:1.25rem;}
+	%child-list 							{margin:.25rem 0 .25rem .5rem;}
+	%list-item 								{margin:0 0 .25rem 0; padding:0;}
+	ul 										{@extend %list; list-style-type:disc;
+		ul,ol,dl 								{@extend %child-list;}
+		ul 										{list-style-type:circle;
+			ul 										{list-style-type:square;}
+		}
+		li 										{@extend %list-item;}
+	}
+	ol 										{@extend %list; list-style-type:decimal;
+		ul,ol,dl 								{@extend %child-list;}
+		ol 										{list-style-type:lower-alpha;
+			ol 										{list-style-type:lower-roman;}
+		}
+		li 										{@extend %list-item;}
+	}
+	dl 										{@extend %list;
+		ul,ol,dl 								{@extend %child-list;}
+		dt 										{@extend %list-item; @extend %bold;}
+		dd 										{@extend %list-item;}
+	}
+	blockquote 								{border-left:1px solid $border-color; line-height:1.5rem; margin:0 2rem; padding:1rem;}
+	table 									{border:1px solid $border-color;}
+	th  									{border-bottom:1px solid $border-color; padding:.5rem; @extend %bold;}
+	tr 										{
+		&:nth-child(odd)						{background-color:#f9f9f9;}
+	}
+	td 										{padding:.5rem;}
+}
+
+//images
+img[align="right"], img[style*="float: right"], img[style*="float:right"], img.image-right	{@extend %float-right; margin:.5rem 0 1rem 1rem; @extend %clear-both;}
+img[align="left"], img[style*="float: left"], img[style*="float:left"], img.image-left	{@extend %float-left; margin:.5rem 1rem 1rem 0; @extend %clear-both;}
+
+//responsive videos
+.video 									{
+	&__wrapper 					 			{margin-top:10px; margin-bottom:20px; @extend %center; @extend %width100;}
+	&__inner 								{height:0; padding-bottom:56.25%; padding-top:30px; @extend %no-overflow; @extend %relative;
+		iframe, object, embed 				{left:0; top:0; @extend %width100; @extend %height100; @extend %absolute;}
+	}
+}
+
+//rows
+@media only screen and (min-width:1325px){
+	.row 								{max-width:1200px;}
+}
+
+@media only screen and (min-width:1170px) and (max-width:1324px){
+	.row 								{max-width:1160px;}
+}
+
+@media only screen and (min-width:1024px){
+	.row-fw								{max-width:100%;}
+}

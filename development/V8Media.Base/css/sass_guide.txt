@@ -1,0 +1,107 @@
+> assets
+Contains none css content such as images and font files
+
+	> images
+	All images to be used for styling go here (eg. Sprites, logo)
+
+		> sample
+		Sample stock images for development go here
+
+	> fonts
+	All font files for the project go here
+
+> base
+Contains global styles and elements (variables, placeholders, mixins) that will remain the same across most projects
+
+	- colour.scss
+	Declares variables and placeholders for colours used on the site
+
+	- base.scss
+	Base styles that will remain constant across most projects	
+
+	- placeholders.scss	
+	Declare global placeholders
+
+> modules
+Contains modular components and styling for custom "plugins" such as lightbox, image slider
+
+	- blocks.scss
+
+	- buttons.scss
+	Base styles for buttons
+
+	- forms.scss
+	Styling for form elements
+
+	- icons.scss
+	Styling for icons / sprites
+
+	- imageslider.scss
+	Styling for imageslider.js
+
+	- lightbox.scss
+	Styling for lightbox.js
+
+	- menus.scss
+	Base styling for menus
+
+	- modal.scss
+	Styling for modal.js
+
+	- offcanvas.scss
+	Styling for off-canvas
+
+> Settings
+Set variables, colours, fonts. Choose which sass files to include in project
+
+	- compile.scss
+	Choose which sass files to include in project
+
+	- settings.scss
+	Set variables, colours, fonts.
+
+> Vendor
+Any 3rd party css files go here (convert to .scss and include in >settings>_compile.scss)
+
+	- foundation.scss
+	foundation framework
+
+	- normalize.scss
+	css reset
+
+> Views
+Page specific styling for project
+
+	- base.scss
+	Sitewide template styles (eg. header, footer)
+
+	- contact.scss
+	- gallery.scss
+	- home.scss
+	- listing.scss
+	- newsarticle.scss
+	- newslisting.scss
+	- search.scss
+	- team.scss
+	- testimonials.scss
+	- textpage.scss
+
+	> ecommerce
+	Style files for ecommerce sites
+
+		- ecommerce.scss
+		compiles all files in this folder
+
+
+- Editor.css
+This is for RTE styling in Umbraco backend. Do not put any styles here
+
+- style.scss
+This file compiles and outputs the "style.css" file which is referenced in the base template.
+*Put any styling here that you are unsure where else for it to go. To be reviewed at end of project.*
+
+- style.css
+This is the compiled css to be referenced in the base project template.
+
+- sass_guide.txt
+This is the file you are reading silly!

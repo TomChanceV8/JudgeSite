@@ -1,0 +1,34 @@
+/*** Lightbox ***/
+$lightbox-overlay-color : rgba(255,255,255,0.5);
+$text-shadow-color : rgba(0,0,0,0.25);
+$arrow-color : #000;
+
+.lb-ol 										{@extend %fixed; top:0; right:0; bottom:0; left:0; background:$lightbox-overlay-color; z-index:9999; opacity:0; @extend %hidden; @include transition(all 500ms);}
+.lb-wrap 									{@extend %fixed; top:50%; @include transform(translateY(-50%)); @extend %width100; @extend %text-center;}
+.lb-inner 									{@extend %inline-block; max-width:90%;}
+.lb-content 								{@extend %float-left; @extend %relative; clear:both;
+	img 										{max-height:80vh;
+												-moz-user-select: none; -webkit-user-select: none; -ms-user-select: none;
+	}
+}
+.lb-close 									{@extend %absolute; @extend %pointer; top:1rem; right:1rem;
+	span 										{@extend %inline-block; margin-left:.5rem; width:4rem; height:4rem; @extend %relative;
+		&:after 									{content:"\00D7";font-size:100px;line-height:35px; }
+	}
+	&:hover 									{text-shadow:2px 2px 2px $text-shadow-color;}
+}
+
+.lb-open 									{
+	.lb-ol 										{@extend %visible; @include transition(all 500ms);}
+}
+
+.lb-nav 								{@extend %absolute; bottom:10vh; top:10vh; width:35%; z-index:2; opacity:0.5; @extend %pointer;
+	span 									{width:32px; height:32px; @extend %absolute; top:50%; @include transform(translateY(-50%) rotate(45deg)); border:3px solid $arrow-color;}
+	&:hover 								{opacity:1;}
+}
+.lb-next 								{right:0;
+	span 									{right:1.5rem; border-bottom-color:transparent; border-left-color:transparent;}
+}
+.lb-prev 								{left:0;
+	span 									{left:1.5rem; border-top-color:transparent; border-right-color:transparent;}
+}

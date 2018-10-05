@@ -1,0 +1,31 @@
+﻿@using V8Media.Framework.Services
+@inherits UmbracoTemplatePage<V8Media.Framework.Models.PublishedContent.NewsListing>
+@{
+    Layout = "Base.cshtml";
+}
+<div class="row">
+    <h1>@Model.Content.FilteredTag</h1>
+    @Html.Raw(Model.Content.BodyText)
+</div>
+<div class="row">
+    <div class="column small-8">
+        <div class="row">
+            @foreach (var news in Model.Content.NewsArticles)
+            {
+                <div class="column small-12">
+                    <h2>@news.Header</h2>
+                    <p>@news.NewsDate.ToShortDateString()</p>
+                    <p>@Umbraco.Truncate(news.BodyText, 250, true, true) <a href="@news.Url">read more</a></p>
+                </div>
+            }
+        </div>
+        @Html.Partial("NextPrevPager", Model.Content.Pager)
+    </div>
+    <div class="column small-4">
+        <p>Categories</p>
+        @foreach (var tag in ServiceFactory.GetService<NewsService>().GetCategoryTags())
+        {
+            <p><a href="@Model.Content.TagFilterUrl(tag.Text)">@tag.Text (@tag.NodeCount)</a></p>
+        }
+    </div>
+</div>

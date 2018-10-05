@@ -1,0 +1,16 @@
+﻿@model V8Media.Framework.Models.Member.MemberLoginModel
+@if (User.Identity.IsAuthenticated)
+{
+    <p>Logged in: @User.Identity.Name</p>
+    <p>@Html.ActionLink("Log out", "MemberLogout", "MemberLoginSurface")</p>
+}
+else
+{
+    using (Html.BeginUmbracoForm("MemberLogin", "MemberLoginSurface"))
+    {
+        @Html.EditorFor(x => Model)
+        <input type="submit" />
+    }
+
+    <p>@TempData["Status"]</p>
+}   

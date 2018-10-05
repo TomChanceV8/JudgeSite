@@ -1,0 +1,13 @@
+﻿@using ClientDependency.Core.Mvc
+@inherits UmbracoTemplatePage
+@{
+    Html.RequiresJs("https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js", 1)
+        .RequiresJs("https://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.0/jquery.validate.js", 2)
+        .RequiresJs("https://ajax.aspnetcdn.com/ajax/mvc/5.1/jquery.validate.unobtrusive.min.js", 3)
+        .RequiresJs("~/scripts/offcanvas.js", 4)
+        .RequiresJs("~/scripts/imageslider.js", 5)
+        .RequiresJs("~/scripts/lightbox.js", 6)
+        .RequiresJs("~/scripts/site.js", 10);
+}
+
+@Html.RenderJsHere()

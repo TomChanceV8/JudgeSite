@@ -1,0 +1,59 @@
+.url-picker .link-meta input[type=text] {
+  width: 265px;
+}
+.url-picker .control-group {
+  margin-bottom: 5px;
+}
+.url-picker .control-group label {
+  padding-left: 0;
+}
+.url-picker ul {
+  margin-bottom: 0;
+  width: 322px;
+}
+.url-picker .tab-body {
+  border: 1px solid #e3e3e3;
+  border-top: 0 none;
+  padding: 10px;
+  width: 300px;
+}
+.url-picker .tab-body input[type=text] {
+  width: 88%;
+}
+.url-picker .tab-body input[type=text]::-ms-clear {
+  display: none;
+}
+.url-picker .tab-body a {
+  cursor: pointer;
+}
+.url-picker .delete-icon {
+  float: right;
+}
+.url-picker .url-delete {
+  margin-top: 5px;
+}
+.url-picker .thumbnail {
+  width: 120px;
+  height: 100px;
+  overflow: hidden;
+  position: relative;
+  display: block;
+  padding: 2px;
+  margin: 5px;
+  text-align: center;
+  vertical-align: top;
+  background: white;
+  border: 1px solid #f8f8f8;
+}
+.url-picker .thumbnail img {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  margin: auto;
+  background-image: url(/umbraco/assets/img/checkered-background.png);
+}
+.url-picker .icon-holder .icon {
+  display: block;
+  font-size: 60px;
+  line-height: 70px;
+}

@@ -1,0 +1,43 @@
+// defines browser prefix mixins for standard css functions
+
+// border-radius
+@mixin border-radius($int...){
+	-webkit-border-radius: $int;
+	border-radius: $int;
+}
+
+// box-sizing
+@mixin box-sizing($string){
+	-webkit-box-sizing: $string;
+	-moz-box-sizing: $string;
+	box-sizing: $string;
+}
+
+// box-shadow
+@mixin box-shadow($var...){
+	-webkit-box-shadow: $var;
+	-moz-box-shadow: $var;
+	box-shadow: $var;
+}
+
+// column-count
+@mixin column-count($var){
+	-moz-column-count:$var;
+	-webkit-column-count:$var;
+	column-count:$var;
+}
+ 
+// column-gap
+@mixin column-gap($var){
+-moz-column-gap:$var;
+-webkit-column-gap:$var;
+column-gap:$var;
+}
+
+// placeholder styling
+@mixin placeholder{
+	&::-webkit-input-placeholder {@content}
+	&:-moz-placeholder {@content}
+	&::-moz-placeholder {@content}
+	&:-ms-input-placeholder {@content}
+}

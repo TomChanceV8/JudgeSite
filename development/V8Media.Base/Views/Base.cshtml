@@ -1,0 +1,44 @@
+﻿@using V8Media.Framework.Utilities.Extensions
+@inherits UmbracoTemplatePage
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        @Html.Partial("~/Views/Partials/HtmlHead/HeaderTags.cshtml")
+        @Html.Action("RenderStyles", "ScriptsAndStyles", true)
+        <script src="~/scripts/vendor/foundation/modernizr.js"></script>
+        @Html.Action("RenderScripts", "ScriptsAndStyles", true)
+		@Html.Partial("~/Views/Partials/HtmlHead/GoogleAnalytics.cshtml")
+    </head>
+    <body>
+        <div class="canvas__wrap">
+            <div class="canvas__inner">
+                <div class="canvas__main">
+                    <header>
+                        <a href="/" class="logo__wrap">
+                            <img src="http://placehold.it/400x100&text=Logo" alt="@Model.Content.Website().SiteName" class="logo" />
+                        </a>
+                        @Html.Partial("~/Views/Partials/Header/Navigation.cshtml")
+                    </header>
+
+                    @RenderBody()
+
+                    <footer>
+                        <div class="row">
+                            <div class="column small-12">
+                                @Html.Partial("~/Views/Partials/Footer/FooterLinks.cshtml")
+                            </div>
+                        </div>
+                    </footer>
+
+                    <div class="canvas__overlay canvas-toggle"></div>
+                </div>
+                <div class="canvas__offcanvas">
+                    @Html.Partial("~/Views/Partials/OffCanvas/NavigationOffCanvas.cshtml")
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,26 @@
+.banner 									{@extend %width100; @extend %float-left; @extend %relative;
+	&__wrap 									{@extend %width100; @extend %float-left; @extend %relative;}
+	&__item 									{left:0; opacity:0; top:0; width:100%; z-index:1; @extend %no-overflow; @extend %absolute; @include transition(opacity,500ms); @include backface-visibility(hidden);
+		&--active 									{position:relative!important; z-index:3; opacity:1;}
+		&--next 									{z-index:2; opacity:1;}
+		img 										{@extend %width100;}
+	}
+	&--animate 									{
+		.banner 									{
+			&__item 									{
+				&--active 									{opacity:0;}
+			}
+		}
+	}
+	&__controls 								{
+		&__arrows									{padding:1rem; @extend %float-left;}
+		&__radials 									{@extend %float-right;}
+	}
+	&__nav 										{border:2px solid $color-1; border-left-color:transparent; border-top-color:transparent; height:30px; width:30px; @extend %float-left; @extend %pointer;
+		&--prev 									{@include transform(rotate(135deg));}
+		&--next 									{@include transform(rotate(-45deg));}
+	}
+	&__radial 									{border:1px solid $color-2; height:20px; margin:.5rem; width:20px; @extend %float-left; @include border-radius(50%); @extend %pointer;
+		&--active 									{@extend %bg-1;}
+	}
+}
