@@ -1,0 +1,43 @@
+﻿@using Dialogue.Logic.Application
+@using Dialogue.Logic.Application.ExtensionMethods
+@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+
+}
+<!--
+            START: Navbar
+
+            Additional Classes:
+                .nk-navbar-sticky
+                .nk-navbar-transparent
+                .nk-navbar-autohide
+                .nk-navbar-light
+                .nk-navbar-no-link-effect
+        -->
+<nav class="nk-navbar nk-navbar-top nk-navbar-sticky nk-navbar-autohide">
+    <div class="container">
+        <div class="nk-nav-table">
+
+            <a href="index.html" class="nk-nav-logo">
+                @*<img src="assets/images/logo.svg" alt="" width="90">*@
+            </a>
+
+            <ul class="nk-nav nk-nav-right d-none d-lg-block" data-nav-mobile="#nk-nav-mobile">
+                <li class="nk-drop-item">
+                    <a href="http://judge-gaming.com/forum/">
+                        Home
+                    </a>
+                </li>
+                @if (!User.Identity.IsAuthenticated)
+                {
+                    if (Dialogue.Logic.Dialogue.Settings().SuspendRegistration != true)
+                    {
+                        <li class="nk-drop-item"><a href="@Urls.GenerateUrl(Urls.UrlType.Register)">@Html.Lang("Layout.Nav.Register")</a></li>
+                    }
+                    <li class="nk-drop-item"><a href="@Urls.GenerateUrl(Urls.UrlType.Login)">@Html.Lang("Layout.Nav.Logon")</a></li>
+                }
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- END: Navbar -->

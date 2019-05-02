@@ -1,0 +1,39 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    var testimonials = Model.Content.AncestorOrSelf(1).Children.Where(x => x.DocumentTypeAlias.Equals("testimonials")).First().Children;
+}
+<style>
+    .nk-testimonial-photo
+    {
+        width:120px!important;
+        height:55px!important;
+        border-radius:0px!important;
+    }
+    
+</style>
+<!-- START: Testimonials -->
+    <div class="nk-gap-6"></div>
+    <div class="nk-gap-2"></div>
+    <div class="nk-carousel-2" data-autoplay="12000" data-dots="true">
+        <div class="nk-carousel-inner">
+            @foreach(var item in testimonials)
+            {
+                var image = item.GetPropertyValue<IPublishedContent>("icon");
+            
+                <div><div>
+                <blockquote class="nk-testimonial-2">
+                    <div class="nk-testimonial-photo" style="background-image: url(@image.GetCropUrl(400);"></div>
+                    <div class="nk-testimonial-body">
+                        <em>@item.GetPropertyValue("quote")</em>
+                    </div>
+                    <div class="nk-testimonial-name h4">@item.GetPropertyValue("name")</div>
+                    <div class="nk-testimonial-source">@item.GetPropertyValue("gamePlayed")</div>
+                </blockquote>
+            </div></div>
+            }
+            
+        </div>
+    </div>
+    <div class="nk-gap-2"></div>
+    <div class="nk-gap-6"></div>
+    <!-- END: Testimonials -->

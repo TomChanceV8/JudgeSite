@@ -1,0 +1,114 @@
+﻿@using Dialogue.Logic.Application
+@using Dialogue.Logic.Application.ExtensionMethods
+@model Dialogue.Logic.Models.MasterModel
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>@RenderSection("PageTitle", false)</title>
+    <meta name="description" content="@RenderSection("MetaDescription", false)">
+    @RenderSection("SocialMeta", false)
+    @ViewBag.Canonical
+
+    <link href="@Url.Content("~/app_plugins/dialogue/content/css/bootstrap.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/app_plugins/dialogue/content/scripts/fancybox/jquery.fancybox.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content(string.Format("~/app_plugins/dialogue/themes/{0}/content/css/styles.css", Dialogue.Logic.Dialogue.Settings().Theme))" rel="stylesheet" type="text/css" />
+    <link rel="icon" type="image/png" href="~/assets/images/favicon.png">
+    @Html.Partial("~/Views/Partials/HtmlHead/BaseStyles.cshtml")
+    <!-- jQuery -->
+    <script defer src="~/assets/vendor/fontawesome-free/js/all.js"></script>
+    <script defer src="~/assets/vendor/fontawesome-free/js/v4-shims.js"></script>
+    <script src="~/assets/vendor/jquery/dist/jquery.min.js"></script>
+
+
+    <!--[if lt IE 9]>
+              <script src="@Url.Content("~/app_plugins/dialogue/content/scripts/html5shiv.js")"></script>
+              <script src="@Url.Content("~/app_plugins/dialogue/content/scripts/respond.min.js")"></script>
+    <![endif]-->
+    @*
+        *** IMPORTANT - The app_base must be present if you use your own master page or styling ***
+    *@
+    <script type="text/javascript">
+        var app_base = '@Url.Content("~/")';
+    </script>
+
+    <script src="@Url.Content("~/app_plugins/dialogue/content/scripts/jquery-1.10.2.min.js")"></script>
+    <script src="@Url.Content("~/app_plugins/dialogue/content/scripts/bootstrap.min.js")"></script>
+    <script src="@Url.Content("~/app_plugins/dialogue/content/scripts/jquery.unobtrusive-ajax.js")"></script>
+    <script src="@Url.Content("~/app_plugins/dialogue/content/scripts/jquery.validate.js")"></script>
+    <script src="@Url.Content("~/app_plugins/dialogue/content/scripts/jquery.validate.unobtrusive.js")"></script>
+    <script src="@Url.Content("~/app_plugins/dialogue/content/scripts/fancybox/jquery.fancybox.pack.js")"></script>
+    <script src="@Url.Content("~/app_plugins/dialogue/content/scripts/general.js")"></script>
+
+
+    @RenderSection("scripts", false)
+    @RenderSection("Head", false)
+</head>
+
+<body>
+    <!-- START: Page Preloader -->
+    @Html.Partial("~/Views/Partials/HtmlHead/PagePreloader.cshtml")
+    <!-- END: Page Preloader -->
+    <!--START: Page Video Background -->
+    @Html.Partial("~/Views/Partials/Decoration/VideoBackground.cshtml")
+    <!-- END: Page Background -->
+    @Html.Partial("~/Views/Partials/Decoration/Audio.cshtml")
+    <!-- END: Page Background -->
+    <!-- START: Page Border -->
+    @Html.Partial("~/Views/Partials/Decoration/Borders.cshtml")
+    <!-- END: Page Border -->
+    <header class="nk-header nk-header-opaque">
+        @Html.Partial("~/Views/Partials/Navigation/CountrySocialBar.cshtml")
+        @Html.Partial("~/Views/Partials/Forum/ForumMainNavBar.cshtml")
+    </header>
+    <div class="nk-main">
+        <div class="nk-header-title nk-header-title-sm nk-header-title-parallax nk-header-title-parallax-opacity">
+            <div class="bg-image">
+                <img src="assets/images/image-1.jpg" alt="" class="jarallax-img">
+            </div>
+            <div class="nk-header-table">
+                <div class="nk-header-table-cell">
+                    <div class="container">
+                        <h1 class="nk-title">Game Forum</h1>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="nk-header-text-bottom">
+                <div class="nk-breadcrumbs text-center">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><span>Forum</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        @Html.ThemedPartial("_GenericMessage")
+        @Html.ThemedPartial("_EmailConfirmationNotice")
+        @RenderBody()
+
+        @*<section class="container stats">
+            <hr>
+            <div class="row">
+                <div class="col-md-6">
+                    @Html.Action("GetMainStats", "DialogueSurface")
+                </div>
+                <div class="col-md-6">
+                    @Html.Action("GetCurrentActiveMembers", "DialogueSurface")
+                </div>
+            </div>
+        </section>*@
+
+        <footer class="nk-footer nk-footer-parallax nk-footer-parallax-opacity">
+            @Html.Partial("~/Views/Partials/Footer/FooterMain.cshtml")
+        </footer>
+    </div>
+    @Html.Partial("~/Views/Partials/HtmlHead/BaseScripts.cshtml")
+</body>
+</html>

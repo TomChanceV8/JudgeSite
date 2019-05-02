@@ -1,7 +1,20 @@
 ﻿@using ClientDependency.Core.Mvc
+@using ClientDependency.Core
 @inherits UmbracoTemplatePage
 @{
-    Html.RequiresCss("~/css/style.css", 1);
+    Html.RequiresCss("https://fonts.googleapis.com/css?family=Roboto+Condensed:300i,400,400i,700%7cMarcellus+SC", 1)
+        .RequiresCss("~/assets/vendor/bootstrap/dist/css/bootstrap.min.css", 2)
+        .RequiresCss("~/assets/vendor/ionicons/css/ionicons.min.css", 3)
+        .RequiresCss("~/assets/vendor/revolution/css/settings.css", 4)
+        .RequiresCss("~/assets/vendor/revolution/css/layers.css", 5)
+        .RequiresCss("~/assets/vendor/revolution/css/navigation.css", 6)
+        .RequiresCss("~/assets/vendor/flickity/dist/flickity.min.css", 7)
+        .RequiresCss("~/assets/vendor/photoswipe/dist/photoswipe.css", 8)
+        .RequiresCss("~/assets/vendor/photoswipe/dist/default-skin/default-skin.css", 9)
+        .RequiresCss("~/assets/vendor/jquery-datetimepicker/build/jquery.datetimepicker.min.css", 10)
+        .RequiresCss("~/assets/vendor/summernote/dist/summernote-bs4.css", 11)
+        .RequiresCss("~/assets/css/godlike.css", 12)
+        .RequiresCss("~/assets/css/custom.css", 13);
 }
 
 @Html.RenderCssHere()

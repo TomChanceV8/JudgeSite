@@ -1,13 +1,36 @@
 ﻿@using ClientDependency.Core.Mvc
 @inherits UmbracoTemplatePage
 @{
-    Html.RequiresJs("https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js", 1)
-        .RequiresJs("https://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.0/jquery.validate.js", 2)
-        .RequiresJs("https://ajax.aspnetcdn.com/ajax/mvc/5.1/jquery.validate.unobtrusive.min.js", 3)
-        .RequiresJs("~/scripts/offcanvas.js", 4)
-        .RequiresJs("~/scripts/imageslider.js", 5)
-        .RequiresJs("~/scripts/lightbox.js", 6)
-        .RequiresJs("~/scripts/site.js", 10);
+    Html.RequiresJs("~/assets/vendor/object-fit-images/dist/ofi.min.js", 1)
+        .RequiresJs("~/assets/vendor/gsap/src/minified/TweenMax.min.js", 2)
+        .RequiresJs("~/assets/vendor/gsap/src/minified/plugins/ScrollToPlugin.min.js", 3)
+        .RequiresJs("~/assets/vendor/popper.js/dist/umd/popper.min.js", 4)
+        .RequiresJs("~/assets/vendor/bootstrap/dist/js/bootstrap.min.js", 5)
+        .RequiresJs("~/assets/vendor/sticky-kit/dist/sticky-kit.min.js", 6)
+        .RequiresJs("~/assets/vendor/jarallax/dist/jarallax.min.js", 8)
+        .RequiresJs("~/assets/vendor/jarallax/dist/jarallax-video.min.js", 9)
+        .RequiresJs("~/assets/vendor/imagesloaded/imagesloaded.pkgd.min.js", 10)
+        .RequiresJs("~/assets/vendor/flickity/dist/flickity.pkgd.min.js", 11)
+        .RequiresJs("~/assets/vendor/isotope-layout/dist/isotope.pkgd.min.js", 12)
+        .RequiresJs("~/assets/vendor/photoswipe/dist/photoswipe.min.js", 13)
+        .RequiresJs("~/assets/vendor/photoswipe/dist/photoswipe-ui-default.min.js", 14)
+        .RequiresJs("~/assets/vendor/typed.js/lib/typed.min.js", 15)
+        .RequiresJs("~/assets/vendor/jquery-validation/dist/jquery.validate.min.js", 16)
+        .RequiresJs("~/assets/vendor/jquery-countdown/dist/jquery.countdown.min.js", 17)
+        .RequiresJs("~/assets/vendor/moment/min/moment.min.js", 18)
+        .RequiresJs("~/assets/vendor/moment-timezone/builds/moment-timezone-with-data.min.js", 20)
+        .RequiresJs("~/assets/vendor/hammerjs/hammer.min.js", 21)
+        .RequiresJs("~/assets/vendor/soundmanager2/script/soundmanager2-nodebug-jsmin.js", 23)
+        .RequiresJs("~/assets/vendor/jquery-datetimepicker/build/jquery.datetimepicker.full.min.js", 24)
+        .RequiresJs("~/assets/vendor/revolution/js/jquery.themepunch.tools.min.js", 25)
+        .RequiresJs("~/assets/vendor/revolution/js/jquery.themepunch.revolution.min.js", 26)
+        .RequiresJs("~/assets/vendor/revolution/js/extensions/revolution.extension.video.min.js", 27)
+        .RequiresJs("~/assets/vendor/revolution/js/extensions/revolution.extension.carousel.min.js", 28)
+        .RequiresJs("~/assets/vendor/revolution/js/extensions/revolution.extension.navigation.min.js", 29)
+        .RequiresJs("~/assets/vendor/keymaster/keymaster.js", 30)
+        .RequiresJs("~/assets/vendor/summernote/dist/summernote-bs4.min.js", 31)
+        .RequiresJs("~/assets/js/godlike.min.js", 32)
+        .RequiresJs("~/assets/js/godlike-init.js", 33);
 }
 
 @Html.RenderJsHere()

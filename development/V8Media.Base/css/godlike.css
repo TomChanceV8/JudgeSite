@@ -7513,13 +7513,13 @@ body.nk-body-overflow .nk-share-buttons {
     position: absolute;
     top: -50px;
     left: 50%;
-    width: 100px;
+    width: 400px;
     height: 100px;
     margin-left: -50px;
     overflow: hidden;
     background-position: 50% 50%;
     background-size: cover;
-    border-radius: 50px;
+    border-radius: 10px;
 }
 
 .nk-testimonial-2 .nk-testimonial-source {

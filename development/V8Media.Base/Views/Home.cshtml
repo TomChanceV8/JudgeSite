@@ -4,3 +4,40 @@
 @{
     Layout = "Base.cshtml";
 }
+
+<div class="nk-header-title nk-header-title-lg nk-header-title-parallax nk-header-title-parallax-opacity">
+    <div class="bg-image">
+        @{
+            var image = Model.Content.GetPropertyValue<IPublishedContent>("bannerImage");
+        }
+        <img src="@image.GetCropUrl(1903,771)" alt="Banner image" class="jarallax-img">
+    </div>
+    <div class="nk-header-table">
+        <div class="nk-header-table-cell">
+            <div class="container">
+                <div class="nk-header-text">
+                    <h1 class="nk-title display-3">@Model.Content.GetPropertyValue("headerText")</h1>
+                        <div class="nk-gap-2"></div>
+                            <a href="" target="_blank" class="nk-btn nk-btn-lg nk-btn-color-main-1 link-effect-4">
+                                <span>Meet Judge</span>
+                            </a>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="" class="nk-btn nk-btn-lg link-effect-4">
+                                <span>Visit Our Forum</span>
+                            </a>
+                        <div class="nk-gap-4"></div>
+                </div>
+           </div>
+        </div>
+    </div>
+</div>
+@Html.Partial("~/Views/Partials/Home/RevolutionSlider.cshtml")
+<!-- START: Features -->
+@Html.Partial("~/Views/Partials/Home/Features.cshtml")
+<!-- END: Features -->
+<!-- START: About -->
+@Html.Partial("~/Views/Partials/Home/About.cshtml")    
+<!-- END: About -->
+<!-- START: Testimonials -->
+@Html.Partial("~/Views/Partials/Home/Testimonials.cshtml")
+<!-- END: Testimonials -->
